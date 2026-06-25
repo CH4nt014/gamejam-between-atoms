@@ -75,6 +75,8 @@ GameObject:
   - component: {fileID: 6244245948960729283}
   - component: {fileID: 3365891219135580017}
   - component: {fileID: 1419926443125234390}
+  - component: {fileID: 1054173287978658504}
+  - component: {fileID: 8775324833396407809}
   m_Layer: 8
   m_Name: Dog
   m_TagString: Untagged
@@ -216,7 +218,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -253,6 +255,35 @@ MonoBehaviour:
     m_Bits: 64
   wallCheck: {fileID: 5710374314444915650}
   wallCheckDistance: 0.5
+  gapCheck: {fileID: 5762379362355964771}
+  gapCheckDistance: 0.6
+--- !u!114 &1054173287978658504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128686021009901799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a29c9368d11ad34e82aaa1ef306750e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DogCatchDetector
+  playerTag: Player
+--- !u!114 &8775324833396407809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128686021009901799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2cc8ee15cdc1d4189e23a6af4cc4ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DogOffScreenLoseCondition
+  mainCamera: {fileID: 0}
+  maxOffScreenTime: 10
 --- !u!1 &8597080847353939496
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,11 +16,12 @@ public class DogController : MonoBehaviour
     [SerializeField] private float wallCheckDistance = 0.2f;
 
     [Header("Gap Check")]
-[SerializeField] private Transform gapCheck;
-[SerializeField] private float gapCheckDistance = 0.6f;
+    [SerializeField] private Transform gapCheck;
+    [SerializeField] private float gapCheckDistance = 0.6f;
 
     private Rigidbody2D rb;
     private bool isGrounded;
+    private bool isCaught;
 
     private void Awake()
     {
@@ -32,27 +33,17 @@ public class DogController : MonoBehaviour
         CheckGround();
     }
 
-private bool CheckGap()
-{
-    RaycastHit2D hit = Physics2D.Raycast(
-        gapCheck.position,
-        Vector2.down,
-        gapCheckDistance,
-        groundLayer
-    );
-
-    return hit.collider == null;
-}
-
-private void FixedUpdate()
-{
-    MoveForward();
-
-    if (CheckWall() || CheckGap())
+    private void FixedUpdate()
     {
-        Jump();
+        if (isCaught) return;
+
+        MoveForward();
+
+        if (CheckWall() || CheckGap())
+        {
+            Jump();
+        }
     }
-}
 
     private void MoveForward()
     {
@@ -80,11 +71,29 @@ private void FixedUpdate()
         return hit.collider != null;
     }
 
+    private bool CheckGap()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(
+            gapCheck.position,
+            Vector2.down,
+            gapCheckDistance,
+            groundLayer
+        );
+
+        return hit.collider == null;
+    }
+
     private void Jump()
     {
         if (!isGrounded) return;
 
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+    }
+
+    public void StopDog()
+    {
+        isCaught = true;
+        rb.linearVelocity = Vector2.zero;
     }
 
     private void OnDrawGizmosSelected()
@@ -104,11 +113,12 @@ private void FixedUpdate()
         }
 
         if (gapCheck != null)
-{
-    Gizmos.color = Color.yellow;
-    Gizmos.DrawLine(
-        gapCheck.position,
-        gapCheck.position + Vector3.down * gapCheckDistance
-    );}
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(
+                gapCheck.position,
+                gapCheck.position + Vector3.down * gapCheckDistance
+            );
+        }
     }
 }
