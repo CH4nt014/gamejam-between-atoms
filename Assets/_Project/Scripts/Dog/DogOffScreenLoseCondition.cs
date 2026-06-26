@@ -45,6 +45,6 @@ public class DogOffScreenLoseCondition : MonoBehaviour
     private void TriggerGameOver()
     {
         hasTriggeredGameOver = true;
-        Debug.Log("GAME OVER - Dog stayed off-screen for too long!");
+        GameManager.Instance.GameOver();
     }
 }

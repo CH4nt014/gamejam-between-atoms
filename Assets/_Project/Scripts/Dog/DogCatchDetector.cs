@@ -15,5 +15,6 @@ public class DogCatchDetector : MonoBehaviour
 
         Debug.Log("Dog caught!");
         dogController.StopDog();
+        GameManager.Instance.Win();
     }
 }
