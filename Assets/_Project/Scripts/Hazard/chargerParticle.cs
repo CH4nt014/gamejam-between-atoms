@@ -1,17 +1,16 @@
 using UnityEngine;
 
-using UnityEngine;
-
 public class ChargerParticle : MonoBehaviour
 {
     [Header("Visual body")]
     [SerializeField] private Transform body;
-    [SerializeField] private float amplitude = 0.4f;
+    [SerializeField] private float amplitude = 0.05f;
     [SerializeField] private float frequency = 1f;
 
     [Header("Magnetic field")]
-    [SerializeField] private CircleCollider2D attractionArea;
-    [SerializeField] private float attractionForce = 50f;
+    //[SerializeField] private CircleCollider2D attractionArea;
+    [SerializeField] private BoxCollider2D attractionArea;
+    [SerializeField] public float attractionForce = 50f;
 
     public bool charge = true;
 
@@ -26,7 +25,7 @@ public class ChargerParticle : MonoBehaviour
 
         if (attractionArea == null)
         {
-            attractionArea = GetComponent<CircleCollider2D>();
+            attractionArea = GetComponent<BoxCollider2D>();
         }
 
         if (body == null)
@@ -49,6 +48,7 @@ public class ChargerParticle : MonoBehaviour
 
         bodyStartLocalPosition = body.localPosition;
         attractionArea.isTrigger = true;
+        //attractionForce = 50f;
     }
 
     private void Update()
@@ -67,31 +67,28 @@ public class ChargerParticle : MonoBehaviour
             return;
         }
 
-        
         Vector2 fieldCenter = attractionArea.bounds.center;
-
         Vector2 toCenter = fieldCenter - playerRb.position;
 
-        float distance = toCenter.magnitude;
+        //float distance = toCenter.magnitude;
 
-        if (distance < 0.001f)
+        /*if (distance < 0.001f)
         {
             return;
         }
+        */
 
-        float worldRadius = attractionArea.bounds.extents.x;
-
-        float distance01 = Mathf.Clamp01(distance / worldRadius);
-
-        float localForce = (1f - distance01)*0.5f;
+        //float worldRadius = attractionArea.bounds.extents.x;
+        //float distance01 = Mathf.Clamp01(distance / worldRadius);
+        //float localForce = (1f - distance01)*0.5f;
 
         if (charge)
         {
-            playerRb.AddForce(toCenter.normalized * attractionForce * localForce, ForceMode2D.Force);
+            playerRb.AddForce(toCenter.normalized * attractionForce, ForceMode2D.Force);
         }
         else
         {
-            playerRb.AddForce(-toCenter.normalized * attractionForce * localForce, ForceMode2D.Force);
+            playerRb.AddForce(-toCenter.normalized * attractionForce, ForceMode2D.Force);
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float walkSpeed = 3f;
+    [SerializeField] public float walkSpeed = 3f;
     [SerializeField] public float runSpeed = 6f;
     [SerializeField] private float acceleration = 50f;
 

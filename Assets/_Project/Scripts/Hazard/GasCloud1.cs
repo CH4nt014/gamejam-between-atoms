@@ -1,39 +1,39 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class gasCloud : MonoBehaviour
+public class GasCloud1 : MonoBehaviour
 {
-    [Header("GAS CLOUD")]
+    [Header("Gas Cloud")]
 
     [SerializeField] private int speedReduction;
 
     PlayerController playerController;
     CircleCollider2D m_circleCollider;
-
     float originalSpeed;
 
-    private void Start()
+    private void Awake()
     {
+        //in percentuale 
+        speedReduction = 50;
+
         m_circleCollider = transform.GetComponent<CircleCollider2D>();
         m_circleCollider.isTrigger = true;
-        speedReduction = 50;
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
             playerController = collision.GetComponent<PlayerController>();
-            originalSpeed = playerController.runSpeed;
-            playerController.runSpeed = originalSpeed - ((originalSpeed / 100) * speedReduction);
+            originalSpeed = playerController.walkSpeed;
+            playerController.walkSpeed = originalSpeed - ((originalSpeed / 100) * speedReduction);
         }
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
-            playerController.runSpeed = originalSpeed;
+            playerController.walkSpeed = originalSpeed;
         }
     }
 }

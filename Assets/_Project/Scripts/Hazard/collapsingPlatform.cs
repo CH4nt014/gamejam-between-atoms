@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class collapsingPlatform : MonoBehaviour
 {
-    bool collaps = false;
-    float collapsingTime;
+    [SerializeField] private float collapsingTime = 1.4f;
+
+    private bool collaps = false;
     float index = 0; 
 
     private void Awake()
@@ -28,15 +29,6 @@ public class collapsingPlatform : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             collaps = true;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.transform.CompareTag("Player"))
-        {
-            collaps = false;
-            index = 0;
         }
     }
 }
