@@ -14,6 +14,10 @@ public class DogOffScreenLoseCondition : MonoBehaviour
             mainCamera = Camera.main;
     }
 
+public void ResetTimer()
+{
+    offScreenTimer = 0f;
+}
     private void Update()
     {
         if (hasTriggeredGameOver) return;

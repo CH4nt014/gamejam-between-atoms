@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -64,4 +65,20 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    private void Update()
+{
+    if (Keyboard.current == null) return;
+
+    if (Keyboard.current.escapeKey.wasPressedThisFrame)
+    {
+        TogglePause();
+    }
+
+    // SOLO DEBUG RESPAWN
+    if (Keyboard.current.kKey.wasPressedThisFrame)
+    {
+        RespawnManager.Instance.Respawn();
+    }
+}
 }
