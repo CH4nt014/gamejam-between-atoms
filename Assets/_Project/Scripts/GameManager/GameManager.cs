@@ -75,10 +75,10 @@ public class GameManager : MonoBehaviour
         TogglePause();
     }
 
-    // SOLO DEBUG RESPAWN
+    /*
     if (Keyboard.current.kKey.wasPressedThisFrame)
     {
         RespawnManager.Instance.Respawn();
-    }
+    }*/
 }
 }

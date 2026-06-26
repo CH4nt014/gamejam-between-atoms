@@ -17,6 +17,7 @@ public class RespawnManager : MonoBehaviour
         player.position = CheckpointManager.Instance.PlayerRespawnPosition;
         dog.position = CheckpointManager.Instance.DogRespawnPosition;
         dog.GetComponent<DogOffScreenLoseCondition>().ResetTimer();
+        player.GetComponent<PlayerController>().ResetPlayerState();
         Debug.Log("Respawn!");
     }
 }

@@ -245,4 +245,23 @@ public class PlayerController : MonoBehaviour
         if (groundCheck != null) Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         if (wallCheck != null) Gizmos.DrawWireSphere(wallCheck.position, wallCheckRadius);
     }
+
+    public void Die()
+{
+    RespawnManager.Instance.Respawn();
+}
+
+public void ResetPlayerState()
+{
+    rb.linearVelocity = Vector2.zero;
+
+    horizontalInput = 0f;
+    currentBaseSpeed = walkSpeed;
+    wallCheckDelayTimer = 0f;
+    jumpsLeft = maxJumps;
+
+    isWallSliding = false;
+    isDashing = false;
+    canDash = true;
+}
 }
