@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 516033764f852478992d1e3b6e50166c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3627087765493134018
+    second: potion_falling_0
+  - first:
+      213: 4495851027481780965
+    second: potion_falling_1
+  - first:
+      213: -2192363531554384732
+    second: potion_falling_2
+  - first:
+      213: 5094421742244797862
+    second: potion_falling_3
+  - first:
+      213: -6007096749903739967
+    second: potion_falling_4
+  - first:
+      213: -7100917999022500785
+    second: potion_falling_5
+  - first:
+      213: -835433450600774367
+    second: potion_falling_6
+  - first:
+      213: -6966845603368442989
+    second: potion_falling_7
+  - first:
+      213: -7500076228045068676
+    second: potion_falling_8
+  - first:
+      213: 223367063579787953
+    second: potion_falling_9
+  - first:
+      213: -6082029310989521788
+    second: potion_falling_10
+  - first:
+      213: 8135647496338940316
+    second: potion_falling_11
+  - first:
+      213: 7467291871467367027
+    second: potion_falling_12
+  - first:
+      213: 7310625046296661724
+    second: potion_falling_13
+  - first:
+      213: -2769720821686591835
+    second: potion_falling_14
+  - first:
+      213: -4513937727050808542
+    second: potion_falling_15
+  - first:
+      213: -6860553606203525566
+    second: potion_falling_16
+  - first:
+      213: 2518212879168619489
+    second: potion_falling_17
+  - first:
+      213: 1906951902861030575
+    second: potion_falling_18
+  - first:
+      213: 7423705507101502071
+    second: potion_falling_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: potion_falling_0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 122
+        width: 43
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c232670b11065230800000000000000
+      internalID: 3627087765493134018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_1
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 79
+        width: 57
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e2602080b8746e30800000000000000
+      internalID: 4495851027481780965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_2
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 68
+        width: 57
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a41e23dbf82391e0800000000000000
+      internalID: -2192363531554384732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_3
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 65
+        width: 59
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad178a459503b640800000000000000
+      internalID: 5094421742244797862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_4
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 96
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c3859a355182aca0800000000000000
+      internalID: -6007096749903739967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_5
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 105
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f441611c3b8747d90800000000000000
+      internalID: -7100917999022500785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_6
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 82
+        width: 51
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1254677f3b1f764f0800000000000000
+      internalID: -835433450600774367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_7
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 66
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3936b3ee5dac05f90800000000000000
+      internalID: -6966845603368442989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_8
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 65
+        width: 44
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c76a50f58606ae790800000000000000
+      internalID: -7500076228045068676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_9
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 76
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2023f292f891300800000000000000
+      internalID: 223367063579787953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_10
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 65
+        width: 50
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ca4fcc09a489ba0800000000000000
+      internalID: -6082029310989521788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_11
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 65
+        width: 50
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c91241d1b40a7e070800000000000000
+      internalID: 8135647496338940316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 56
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37a69f8c46621a760800000000000000
+      internalID: 7467291871467367027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_13
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1
+        width: 56
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cde069a0fbe847560800000000000000
+      internalID: 7310625046296661724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_14
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1
+        width: 56
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ae1e585699ff89d0800000000000000
+      internalID: -2769720821686591835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_15
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 12
+        width: 51
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22307e89d854b51c0800000000000000
+      internalID: -4513937727050808542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_16
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 14
+        width: 51
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 246b6bb08da6ac0a0800000000000000
+      internalID: -6860553606203525566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_17
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 17
+        width: 51
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e3c8a3854d72f220800000000000000
+      internalID: 2518212879168619489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_18
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 14
+        width: 51
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa479c5f6aad67a10800000000000000
+      internalID: 1906951902861030575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_falling_19
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 18
+        width: 51
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a65e383dc460760800000000000000
+      internalID: 7423705507101502071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      potion_falling_0: 3627087765493134018
+      potion_falling_1: 4495851027481780965
+      potion_falling_10: -6082029310989521788
+      potion_falling_11: 8135647496338940316
+      potion_falling_12: 7467291871467367027
+      potion_falling_13: 7310625046296661724
+      potion_falling_14: -2769720821686591835
+      potion_falling_15: -4513937727050808542
+      potion_falling_16: -6860553606203525566
+      potion_falling_17: 2518212879168619489
+      potion_falling_18: 1906951902861030575
+      potion_falling_19: 7423705507101502071
+      potion_falling_2: -2192363531554384732
+      potion_falling_3: 5094421742244797862
+      potion_falling_4: -6007096749903739967
+      potion_falling_5: -7100917999022500785
+      potion_falling_6: -835433450600774367
+      potion_falling_7: -6966845603368442989
+      potion_falling_8: -7500076228045068676
+      potion_falling_9: 223367063579787953
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
