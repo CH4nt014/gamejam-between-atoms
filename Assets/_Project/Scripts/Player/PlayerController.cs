@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float acceleration = 50f;
 
     [Header("Jump")]
-    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] public float jumpForce = 10f;
     [SerializeField] private float jumpCutMultiplier = 0.5f;
     [SerializeField] private int maxJumps = 2;
 
@@ -232,7 +232,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Flip()
+    public void Flip()
     {
         isFacingRight = !isFacingRight;
         Vector3 localScale = transform.localScale;
