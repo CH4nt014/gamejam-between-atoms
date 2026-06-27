@@ -8,7 +8,9 @@ public class GasCloud1 : MonoBehaviour
 
     PlayerController playerController;
     CircleCollider2D m_circleCollider;
-    float originalSpeed;
+    
+    private float originalWalkSpeed;
+    private float originalRunSpeed;
 
     private void Awake()
     {
@@ -24,8 +26,12 @@ public class GasCloud1 : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             playerController = collision.GetComponent<PlayerController>();
-            originalSpeed = playerController.walkSpeed;
-            playerController.walkSpeed = originalSpeed - ((originalSpeed / 100) * speedReduction);
+
+            originalWalkSpeed = playerController.walkSpeed;
+            originalRunSpeed = playerController.runSpeed;
+
+            playerController.walkSpeed = originalWalkSpeed - ((originalWalkSpeed / 100) * speedReduction);
+            playerController.runSpeed = originalRunSpeed - ((originalRunSpeed / 100) * speedReduction);
         }
     }
 
@@ -33,7 +39,8 @@ public class GasCloud1 : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            playerController.walkSpeed = originalSpeed;
+            playerController.walkSpeed = originalWalkSpeed;
+            playerController.runSpeed = originalRunSpeed;
         }
     }
 }
