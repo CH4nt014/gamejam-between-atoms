@@ -28,6 +28,12 @@ public class PlayerAudioController : MonoBehaviour
         footstepInstance.start();
     }
 
+    public void StopFootstepFromAnimation()
+    {
+        if (footStepsSoundEvent.IsNull) return;
+        footstepInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+
     public void PlayJumpSound()
     {
         if (!jumpSoundEvent.IsNull)

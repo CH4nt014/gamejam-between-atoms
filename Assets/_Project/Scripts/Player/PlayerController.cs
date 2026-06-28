@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     //Events
     [Header("Events")]
     [SerializeField] private UnityEvent onSlide;
+    [SerializeField] private UnityEvent onDeath;
+    [SerializeField] private UnityEvent onJump;
+    [SerializeField] private UnityEvent onStartMoving;
+    [SerializeField] private UnityEvent onStopMoving;
 
     [Header("Movement")]
     [SerializeField] public float walkSpeed = 3f;
@@ -144,9 +148,29 @@ public class PlayerController : MonoBehaviour
         float rawInput = 0f;
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) rawInput = -1f;
         if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) rawInput = 1f;
+        
+        CheckMoveStateChange(rawInput);
 
         // Stage 3 Antimateria effect: flips controls dynamically if true
         horizontalInput = controlsInverted ? -rawInput : rawInput;
+    }
+
+    // Method to call external in editor events when input is pressed / released. 
+    // Called to play / stop footsteps audio for instance.
+    private void CheckMoveStateChange(float rawInput)
+    {
+        bool moveStartedThisFrame = rawInput != 0 && horizontalInput == 0;
+        bool moveStoppedThisFrame = rawInput == 0 && horizontalInput != 0;
+
+        if (moveStartedThisFrame)
+        {
+            onStartMoving.Invoke();
+        }
+        else if (moveStoppedThisFrame)
+        {
+            onStopMoving.Invoke();
+        }
+
     }
 
     private void Move()
@@ -174,6 +198,7 @@ public class PlayerController : MonoBehaviour
         // Normal vs inverted gravity
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, finalJumpForce * Mathf.Sign(transform.localScale.y));
         jumpsLeft--;
+        onJump.Invoke();
     }
 
     private void WallJump()
@@ -187,6 +212,8 @@ public class PlayerController : MonoBehaviour
 
         wallCheckDelayTimer = 0.25f;
         isWallSliding = false;
+
+        onJump.Invoke();
 
         Flip();
     }
@@ -255,6 +282,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
 {
+    onDeath.Invoke();
     RespawnManager.Instance.Respawn();
 }
 
