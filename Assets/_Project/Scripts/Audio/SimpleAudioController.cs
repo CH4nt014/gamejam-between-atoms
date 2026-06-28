@@ -65,13 +65,18 @@ public class SimpleAudioController : MonoBehaviour
         }
     }
 
-    void OnDestroy()
+    public void StopMainInstance()
     {
         if (instance.isValid())
         {
             instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             instance.release();
         }
+    }
+
+    void OnDestroy()
+    {
+        StopMainInstance();
     }
 
 
