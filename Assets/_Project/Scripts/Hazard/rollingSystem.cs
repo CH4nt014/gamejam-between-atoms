@@ -2,34 +2,35 @@ using UnityEngine;
 
 public class rollingSystem : MonoBehaviour
 {
+    // You can keep this visible in the Inspector to watch it turn on and off while testing!
     [SerializeField] private bool isGrounded;
-    [SerializeField] private float rollingSpeed;
+    [SerializeField] private float rollingSpeed = 3f;
 
-    [Header("Ground Check")]
-    [SerializeField] private float groundCheckRadius;
-    [SerializeField] private LayerMask groundLayer;
-
-    Rigidbody2D m_rb;
-
-    PlayerController playerController;
-
+    private Rigidbody2D m_rb;
     private Animator m_animator;
 
     private void Awake()
     {
-        m_rb = transform.GetComponent<Rigidbody2D>();
-        groundCheckRadius = 0.6f;
-        rollingSpeed = 3f;
+        m_rb = GetComponent<Rigidbody2D>();
+        m_animator = GetComponent<Animator>();
 
-        m_animator = transform.GetComponent<Animator>();
+        // Prevents the physical circle from spinning
+        m_rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    void Update()
+    {
+        if (m_animator != null)
+        {
+            m_animator.SetBool("isGrounded", isGrounded);
+        }
     }
 
     void FixedUpdate()
     {
         if (isGrounded)
         {
-            StartRolling();
-            Vector3 targetPosition = transform.position + Vector3.left * Time.deltaTime * rollingSpeed; 
+            Vector3 targetPosition = transform.position + Vector3.left * Time.fixedDeltaTime * rollingSpeed;
             m_rb.MovePosition(targetPosition);
         }
     }
@@ -39,19 +40,22 @@ public class rollingSystem : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             Debug.Log("Tube hit Player");
-            playerController = collision.transform.GetComponent<PlayerController>();
             Destroy(gameObject);
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        { 
+        {
+            // Tube touches the ground -> Start rolling
             isGrounded = true;
-        }  
-            
-    
+        }
     }
 
-    private void StartRolling()
+    // --- NEW METHOD ---
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        m_animator.SetBool("isRolling", true);
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            // Tube slips off the ground -> Start falling
+            isGrounded = false;
+        }
     }
 }
