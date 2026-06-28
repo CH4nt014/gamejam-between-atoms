@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] public float walkSpeed = 3f;
-    [SerializeField] public float runSpeed = 6f;
+    [SerializeField] public float runSpeed = 4.5f;
     [SerializeField] private float acceleration = 50f;
 
     [Header("Jump")]
@@ -36,18 +36,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
 
-    [Header("Dash (GDD Feature)")]
+    [Header("Dash")]
     [SerializeField] private float dashForce = 20f;
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 1f;
 
-    [Header("Status Modifiers (GDD Alterations)")]
+    [Header("Status Modifiers")]
     public float speedMultiplier = 1f;
     public float jumpMultiplier = 1f;
     public bool controlsInverted = false;
     public bool hasDashUnlocked = false; // Unlocked via Neon-Blue potion
 
     private Rigidbody2D rb;
+    private Animator anim;
+
     private float horizontalInput;
     private float currentBaseSpeed;
     private float wallCheckDelayTimer;
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         jumpsLeft = maxJumps;
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -98,6 +101,8 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(PerformDash());
         }
+
+        UpdateAnimations();
     }
 
     private void FixedUpdate()
@@ -215,18 +220,26 @@ public class PlayerController : MonoBehaviour
 
         onJump.Invoke();
 
+        onJump.Invoke();
+
         Flip();
     }
 
     private void HandleWallSlide()
     {
         bool pressingToWall = (isFacingRight && horizontalInput > 0) || (!isFacingRight && horizontalInput < 0);
+        
+        bool canSlide = isWalled && pressingToWall && !isGrounded && rb.linearVelocity.y <= 0;
 
-        if (isWalled && pressingToWall && !isGrounded && rb.linearVelocity.y <= 0)
+        if(!isWallSliding && canSlide)
+        {
+            onSlide.Invoke(); // used to trigger sound only the first time the slide condition is met
+        }
+
+        if (canSlide)
         {
             isWallSliding = true;
             jumpsLeft = maxJumps;
-            onSlide.Invoke();
         }
         else
         {
@@ -299,4 +312,58 @@ public void ResetPlayerState()
     isDashing = false;
     canDash = true;
 }
+
+    private void UpdateAnimations()
+    {
+        bool isMoving = horizontalInput != 0 && Mathf.Abs(rb.linearVelocity.x) > 0.1f;
+        anim.SetBool("isRunning", isMoving);
+
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isWallSliding", isWallSliding);
+        anim.SetBool("isDashing", isDashing);
+    
+    // PowerUps
+    speedMultiplier = 1f;
+    jumpMultiplier = 1f;
+    hasDashUnlocked = false;
+}
+
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        PickupItem item = other.GetComponent<PickupItem>();
+
+        if (item != null)
+        {
+            CollectItem(item);
+            Destroy(other.gameObject);
+        }
+    }
+
+    // Permanent
+    private void CollectItem(PickupItem item)
+    {
+        switch (item.type)
+        {
+            case PickupItem.ItemType.GreenPowerUp_JumpUpgrade:
+                // Updates jump multiplier
+                jumpMultiplier = item.intensityMultiplier;
+                Debug.Log($"Collected Green Potion: Jump permanently upgraded to {jumpMultiplier}x!");
+                break;
+
+            case PickupItem.ItemType.YellowPowerUp_SpeedBoost:
+                // Updates speed multiplier
+                speedMultiplier = item.intensityMultiplier;
+                Debug.Log($"Collected Yellow Potion: Speed permanently upgraded to {speedMultiplier}x!");
+                break;
+
+            case PickupItem.ItemType.Blue_PowerUp:
+                // Unlocks dash
+                hasDashUnlocked = true;
+                Debug.Log("Collected Neon-Blue Tube: Dash Feature Permanently Unlocked! (Press F)");
+                break;
+        }
+    }
+
+
 }
