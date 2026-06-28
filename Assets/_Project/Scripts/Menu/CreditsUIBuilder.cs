@@ -21,6 +21,9 @@ public class CreditsUIBuilder : MonoBehaviour
     [SerializeField] private Color m_textColor = Color.white;
     [SerializeField] private Color m_backgroundColor = new Color(0f, 0f, 0f, 0.85f);
 
+    [Tooltip("Main menu objects (buttons, title...) to hide while credits are open.")]
+    [SerializeField] private GameObject[] m_objectsToHideWhileOpen;
+
     private GameObject m_root;
 
     private void Awake()
@@ -32,11 +35,23 @@ public class CreditsUIBuilder : MonoBehaviour
     public void Open()
     {
         if (m_root != null) m_root.SetActive(true);
+        SetMainUIVisible(false); // hide the main menu buttons behind the credits
     }
 
     public void Close()
     {
         if (m_root != null) m_root.SetActive(false);
+        SetMainUIVisible(true); // bring the main menu buttons back
+    }
+
+    // Toggle the main menu objects assigned in the inspector.
+    private void SetMainUIVisible(bool visible)
+    {
+        if (m_objectsToHideWhileOpen == null) return;
+        foreach (GameObject go in m_objectsToHideWhileOpen)
+        {
+            if (go != null) go.SetActive(visible);
+        }
     }
 
     private void Build()
