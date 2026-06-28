@@ -210,6 +210,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &12753900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
+  m_PrefabInstance: {fileID: 56870305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b5309752ebbda4eaa23834036842ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!4 &41312682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6876409675286135088, guid: ac9b21ff9752db944a7f2738fb8c3fa7, type: 3}
@@ -273,7 +284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
       propertyPath: onLose.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
       propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -288,6 +299,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
+      propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
       propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 56870306}
@@ -299,6 +314,10 @@ PrefabInstance:
       propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 56870306}
+    - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
+      propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 12753900}
     - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
       propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -324,6 +343,10 @@ PrefabInstance:
       value: PlayOneShot
       objectReference: {fileID: 0}
     - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
+      propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
       propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SimpleAudioController, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -334,6 +357,14 @@ PrefabInstance:
     - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
       propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SimpleAudioController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
+      propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
+      propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: GameOver
       objectReference: {fileID: 0}
     - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
       propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -12090,7 +12121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1407971941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12179,7 +12210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1419926443125234390, guid: c5a68417e6a266b49b738bf24ded18e5, type: 3}
       propertyPath: moveSpeed
-      value: 0.9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2864294768621163205, guid: c5a68417e6a266b49b738bf24ded18e5, type: 3}
       propertyPath: soundEvent.Path
@@ -12275,7 +12306,7 @@ PrefabInstance:
       objectReference: {fileID: 451689486}
     - target: {fileID: 8775324833396407809, guid: c5a68417e6a266b49b738bf24ded18e5, type: 3}
       propertyPath: maxOffScreenTime
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
