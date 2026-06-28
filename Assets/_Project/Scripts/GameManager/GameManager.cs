@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
         IsGameOver = true;
         onLose.Invoke();
-        Time.timeScale = 0f;
+        // Time.timeScale = 0f;
         Debug.Log("GAME OVER");
     }
 
