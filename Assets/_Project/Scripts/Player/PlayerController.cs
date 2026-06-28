@@ -36,18 +36,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
 
-    [Header("Dash (GDD Feature)")]
+    [Header("Dash")]
     [SerializeField] private float dashForce = 20f;
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 1f;
 
-    [Header("Status Modifiers (GDD Alterations)")]
+    [Header("Status Modifiers")]
     public float speedMultiplier = 1f;
     public float jumpMultiplier = 1f;
     public bool controlsInverted = false;
     public bool hasDashUnlocked = false; // Unlocked via Neon-Blue potion
 
     private Rigidbody2D rb;
+    private Animator anim;
+
     private float horizontalInput;
     private float currentBaseSpeed;
     private float wallCheckDelayTimer;
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         jumpsLeft = maxJumps;
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -98,6 +101,8 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(PerformDash());
         }
+
+        UpdateAnimations();
     }
 
     private void FixedUpdate()
@@ -299,4 +304,14 @@ public void ResetPlayerState()
     isDashing = false;
     canDash = true;
 }
+
+    private void UpdateAnimations()
+    {
+        bool isMoving = horizontalInput != 0 && Mathf.Abs(rb.linearVelocity.x) > 0.1f;
+        anim.SetBool("isRunning", isMoving);
+
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isWallSliding", isWallSliding);
+        anim.SetBool("isDashing", isDashing);
+    }
 }
