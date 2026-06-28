@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class CameraParallax : MonoBehaviour
 {
-    // Update is called once per frame
+
+    public GameObject Player;
+
     void Update()
     {
-        transform.position = new Vector3(transform.position.x + 0.001f, transform.position.y, transform.position.z);
+        transform.position = new Vector3(Player.transform.position.x, transform.position.y, transform.position.z);
     }
 }
