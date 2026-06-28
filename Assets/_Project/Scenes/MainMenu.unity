@@ -1114,6 +1114,8 @@ MonoBehaviour:
   m_fontSize: 36
   m_textColor: {r: 1, g: 1, b: 1, a: 0.98039216}
   m_backgroundColor: {r: 0, g: 0, b: 0, a: 0.9019608}
+  m_objectsToHideWhileOpen:
+  - {fileID: 1435574745}
 --- !u!1 &1435574745
 GameObject:
   m_ObjectHideFlags: 0
