@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: a13dc655570d3f54296538c867584e6a
+guid: 8d3128b65c2c78c4ab365738a971e018
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 708249461938243751
-    second: dog_poop_0
+      213: -8742749809822962624
+    second: anthil_2_0
+  - first:
+      213: 3804569521790346977
+    second: anthil_2_1
+  - first:
+      213: 8376177796618631827
+    second: anthil_2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dog_poop_0
+      name: anthil_2_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 27
-        height: 27
+        x: 0
+        y: 52
+        width: 51
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a8c037122534d900800000000000000
-      internalID: 708249461938243751
+      spriteID: 04c63697e538ba680800000000000000
+      internalID: -8742749809822962624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anthil_2_1
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 52
+        width: 166
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e6679592db8cc430800000000000000
+      internalID: 3804569521790346977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anthil_2_2
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 100
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39ab7feb3592e3470800000000000000
+      internalID: 8376177796618631827
       vertices: []
       indices: 
       edges: []
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dog_poop_0: 708249461938243751
+      anthil_2_0: -8742749809822962624
+      anthil_2_1: 3804569521790346977
+      anthil_2_2: 8376177796618631827
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
