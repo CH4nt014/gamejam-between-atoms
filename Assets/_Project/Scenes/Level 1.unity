@@ -6944,18 +6944,6 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5430982758929957889, guid: c5a68417e6a266b49b738bf24ded18e5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5430982758929957889, guid: c5a68417e6a266b49b738bf24ded18e5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5430982758929957889, guid: c5a68417e6a266b49b738bf24ded18e5, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2864294768621163205, guid: c5a68417e6a266b49b738bf24ded18e5, type: 3}
       propertyPath: soundEvent.Path
       value: event:/Cane
@@ -6975,6 +6963,18 @@ PrefabInstance:
     - target: {fileID: 2864294768621163205, guid: c5a68417e6a266b49b738bf24ded18e5, type: 3}
       propertyPath: soundEvent.Guid.Data4
       value: 1238375547
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430982758929957889, guid: c5a68417e6a266b49b738bf24ded18e5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430982758929957889, guid: c5a68417e6a266b49b738bf24ded18e5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430982758929957889, guid: c5a68417e6a266b49b738bf24ded18e5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5430982758929957889, guid: c5a68417e6a266b49b738bf24ded18e5, type: 3}
       propertyPath: m_LocalPosition.x
