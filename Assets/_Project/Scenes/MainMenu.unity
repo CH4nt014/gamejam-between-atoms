@@ -177,6 +177,20 @@ MonoBehaviour:
       Data3: 548368291
       Data4: -1355200037
     Path: event:/Select
+  oneShotEvent2:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  oneShotEvent3:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   collisionSoundEvent:
     Guid:
       Data1: 0
@@ -329,7 +343,7 @@ GameObject:
   - component: {fileID: 584846655}
   - component: {fileID: 584846656}
   m_Layer: 5
-  m_Name: B_Option
+  m_Name: B_Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -501,6 +515,20 @@ MonoBehaviour:
       Data3: 548368291
       Data4: -1355200037
     Path: event:/Select
+  oneShotEvent2:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  oneShotEvent3:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   collisionSoundEvent:
     Guid:
       Data1: -479859848
@@ -1147,9 +1175,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'OPTION
-
-'
+  m_text: CREDITS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
