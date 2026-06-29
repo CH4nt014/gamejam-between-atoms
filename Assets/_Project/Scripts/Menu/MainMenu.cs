@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using TMPro; // Required for TextMeshPro!
 
 public class MainMenu : MonoBehaviour
 {
@@ -9,16 +10,18 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private CreditsUIBuilder m_creditsBuilder;
     [SerializeField] private GameObject m_firstSelectedButton;
 
+    [Header("Saved Data UI")]
+    [Tooltip("The TextMeshPro label that will show the best time.")]
+    [SerializeField] private TMP_Text m_bestTimeLabel;
+
     [Header("Entry Animation Settings")]
     [Tooltip("Drag the Canvas Groups here in the order you want them to appear.")]
     [SerializeField] private CanvasGroup[] m_uiElementsToAnimate;
     [SerializeField] private float m_animationDuration = 0.5f;
     [SerializeField] private float m_staggerDelay = 0.2f;
 
-
     private void Awake()
     {
-
         if (m_firstSelectedButton != null)
         {
             EventSystem.current.SetSelectedGameObject(m_firstSelectedButton);
@@ -32,7 +35,34 @@ public class MainMenu : MonoBehaviour
             if (element != null) element.alpha = 0f;
         }
 
+        LoadBestTime(); // Load and display the time immediately
         StartCoroutine(AnimateMenuIn());
+    }
+
+    private void LoadBestTime()
+    {
+        if (m_bestTimeLabel == null) return;
+
+        // Check if a best time has been saved yet
+        if (PlayerPrefs.HasKey("BestTime"))
+        {
+            float savedTime = PlayerPrefs.GetFloat("BestTime");
+
+            // Format it exactly like your in-game speedrunner timer
+            int minutes = Mathf.FloorToInt(savedTime / 60f);
+            int seconds = Mathf.FloorToInt(savedTime % 60f);
+            int ms = Mathf.FloorToInt((savedTime % 1f) * 1000f);
+
+            m_bestTimeLabel.text = $"Personal Best: {minutes:00}:{seconds:00}.{ms:000}";
+
+            // Ensure the text is visible
+            m_bestTimeLabel.gameObject.SetActive(true);
+        }
+        else
+        {
+            // If no time exists (first time playing), hide the text entirely
+            m_bestTimeLabel.gameObject.SetActive(false);
+        }
     }
 
     private IEnumerator AnimateMenuIn()

@@ -448,6 +448,10 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
+      propertyPath: gameTimer
+      value: 
+      objectReference: {fileID: 749739479}
+    - target: {fileID: 7505697962777641757, guid: 900059eefff814a49be04fe11a308c89, type: 3}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 2066156389}
@@ -13529,7 +13533,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 45, y: -30}
+  m_AnchoredPosition: {x: 40, y: -30}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &749739479
@@ -13546,6 +13550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameTimer
   m_label: {fileID: 749739480}
   m_useMinutesFormat: 1
+  m_showMilliseconds: 1
   m_autoStart: 1
 --- !u!114 &749739480
 MonoBehaviour:
@@ -13601,7 +13606,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -13611,7 +13616,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -13633,7 +13638,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 19.941895, y: 0, z: 145.11906, w: 36.76387}
+  m_margin: {x: 12.865387, y: 0, z: 145.11906, w: 36.76387}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
