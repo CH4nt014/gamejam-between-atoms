@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        Time.timeScale = 1f;
     }
 
     public void Win()
@@ -33,7 +32,6 @@ public class GameManager : MonoBehaviour
 
         IsVictory = true;
         onWin.Invoke();
-        Time.timeScale = 0f;
         Debug.Log("VICTORY");
     }
 
@@ -43,7 +41,6 @@ public class GameManager : MonoBehaviour
 
         IsGameOver = true;
         onLose.Invoke();
-        // Time.timeScale = 0f;
         Debug.Log("GAME OVER");
     }
 
@@ -65,7 +62,6 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene(sceneName);
     }
 
