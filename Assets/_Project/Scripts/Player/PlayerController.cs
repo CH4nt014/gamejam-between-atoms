@@ -5,8 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
-
-    //Events
+    // Events
     [Header("Events")]
     [SerializeField] private UnityEvent onSlide;
     [SerializeField] private UnityEvent onDeath;
@@ -46,6 +45,10 @@ public class PlayerController : MonoBehaviour
     public float jumpMultiplier = 1f;
     public bool controlsInverted = false;
     public bool hasDashUnlocked = false; // Unlocked via Neon-Blue potion
+
+    [Header("Environmental Hazards")]
+    public float gasSpeedMultiplier = 0.5f; // Cuts speed by 50% in a gas cloud
+    private int overlappingClouds = 0;      // Tracks how many clouds the player is in
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -153,7 +156,7 @@ public class PlayerController : MonoBehaviour
         float rawInput = 0f;
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) rawInput = -1f;
         if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) rawInput = 1f;
-        
+
         CheckMoveStateChange(rawInput);
 
         // Stage 3 Antimateria effect: flips controls dynamically if true
@@ -180,9 +183,18 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        float targetSpeed = horizontalInput * (currentBaseSpeed * speedMultiplier);
-        float currentAcc = acceleration;
+        // Calculate desired speed based on Walk/Sprint and Power-Up Potions
+        float activeSpeed = currentBaseSpeed * speedMultiplier;
 
+        // Apply Gas Cloud penalty if standing in 1 or more clouds
+        if (overlappingClouds > 0)
+        {
+            activeSpeed *= gasSpeedMultiplier;
+        }
+
+        // Calculate final velocity
+        float targetSpeed = horizontalInput * activeSpeed;
+        float currentAcc = acceleration;
         float newX = Mathf.MoveTowards(rb.linearVelocity.x, targetSpeed, currentAcc * Time.fixedDeltaTime);
 
         if (isWallSliding)
@@ -212,28 +224,23 @@ public class PlayerController : MonoBehaviour
 
         rb.linearVelocity = new Vector2(jumpDirection * wallJumpForce.x, wallJumpForce.y * Mathf.Sign(transform.localScale.y));
 
-        // Consumes first jump slot 1 extra remaining
+        // Consumes first jump slot, leaves 1 extra remaining
         jumpsLeft = maxJumps - 1;
-
         wallCheckDelayTimer = 0.25f;
         isWallSliding = false;
 
         onJump.Invoke();
-
-        onJump.Invoke();
-
         Flip();
     }
 
     private void HandleWallSlide()
     {
         bool pressingToWall = (isFacingRight && horizontalInput > 0) || (!isFacingRight && horizontalInput < 0);
-        
         bool canSlide = isWalled && pressingToWall && !isGrounded && rb.linearVelocity.y <= 0;
 
-        if(!isWallSliding && canSlide)
+        if (!isWallSliding && canSlide)
         {
-            onSlide.Invoke(); // used to trigger sound only the first time the slide condition is met
+            onSlide.Invoke(); // Trigger sound only the first time slide condition is met
         }
 
         if (canSlide)
@@ -294,24 +301,27 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Die()
-{
-    onDeath.Invoke();
-    RespawnManager.Instance.Respawn();
-}
+    {
+        onDeath.Invoke();
+        RespawnManager.Instance.Respawn();
+    }
 
-public void ResetPlayerState()
-{
-    rb.linearVelocity = Vector2.zero;
+    public void ResetPlayerState()
+    {
+        rb.linearVelocity = Vector2.zero;
 
-    horizontalInput = 0f;
-    currentBaseSpeed = walkSpeed;
-    wallCheckDelayTimer = 0f;
-    jumpsLeft = maxJumps;
+        horizontalInput = 0f;
+        currentBaseSpeed = walkSpeed;
+        wallCheckDelayTimer = 0f;
+        jumpsLeft = maxJumps;
 
-    isWallSliding = false;
-    isDashing = false;
-    canDash = true;
-}
+        // Reset hazard states so the player doesn't spawn slow
+        overlappingClouds = 0;
+
+        isWallSliding = false;
+        isDashing = false;
+        canDash = true;
+    }
 
     private void UpdateAnimations()
     {
@@ -321,14 +331,8 @@ public void ResetPlayerState()
         anim.SetBool("isGrounded", isGrounded);
         anim.SetBool("isWallSliding", isWallSliding);
         anim.SetBool("isDashing", isDashing);
-    
-    // PowerUps
-    speedMultiplier = 1f;
-    jumpMultiplier = 1f;
-    hasDashUnlocked = false;
-}
+    }
 
-    
     private void OnTriggerEnter2D(Collider2D other)
     {
         PickupItem item = other.GetComponent<PickupItem>();
@@ -340,30 +344,42 @@ public void ResetPlayerState()
         }
     }
 
-    // Permanent
+    // Permanent Power-Ups
     private void CollectItem(PickupItem item)
     {
         switch (item.type)
         {
             case PickupItem.ItemType.GreenPowerUp_JumpUpgrade:
-                // Updates jump multiplier
                 jumpMultiplier = item.intensityMultiplier;
                 Debug.Log($"Collected Green Potion: Jump permanently upgraded to {jumpMultiplier}x!");
                 break;
 
             case PickupItem.ItemType.YellowPowerUp_SpeedBoost:
-                // Updates speed multiplier
                 speedMultiplier = item.intensityMultiplier;
                 Debug.Log($"Collected Yellow Potion: Speed permanently upgraded to {speedMultiplier}x!");
                 break;
 
             case PickupItem.ItemType.Blue_PowerUp:
-                // Unlocks dash
                 hasDashUnlocked = true;
                 Debug.Log("Collected Neon-Blue Tube: Dash Feature Permanently Unlocked! (Press F)");
                 break;
         }
     }
 
+    // --- GAS CLOUD TRIGGER METHODS ---
+    public void EnterGasCloud()
+    {
+        overlappingClouds++;
+    }
 
+    public void ExitGasCloud()
+    {
+        overlappingClouds--;
+
+        // Failsafe to ensure counter never breaks below zero
+        if (overlappingClouds < 0)
+        {
+            overlappingClouds = 0;
+        }
+    }
 }
